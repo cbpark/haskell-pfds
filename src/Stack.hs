@@ -3,13 +3,14 @@ module Stack where
 import Data.List (tails)
 
 class Stack s where
-    empty :: s a
+    empty   :: s a
     isEmpty :: s a -> Bool
-    cons :: a -> s a -> s a
-    -- head :: s a -> a
-    head :: s a -> Maybe a
-    -- tail :: s a -> s a
-    tail :: s a -> Maybe (s a)
+
+    cons    :: a -> s a -> s a
+    -- head    :: s a -> a
+    head    :: s a -> Maybe a
+    -- tail    :: s a -> s a
+    tail    :: s a -> Maybe (s a)
 
 instance Stack [] where
     -- empty :: [a]

@@ -18,6 +18,7 @@ library
   exposed-modules:     Stack
                        Heap
                        Heap.LeftistHeap
+                       Heap.BinomialHeap
                        Set
                        Set.UnbalancedSet
                        FiniteMap

@@ -1,4 +1,4 @@
-module LeftistHeap where
+module Heap.LeftistHeap where
 
 import Heap
 

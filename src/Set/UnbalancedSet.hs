@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-module UnbalancedSet where
+module Set.UnbalancedSet where
 
 import Set
 import FiniteMap

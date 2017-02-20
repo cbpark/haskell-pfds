@@ -1,4 +1,4 @@
-module Heap.BinomialHeap (BinomialHeap (..), fromList) where
+module Heap.BinomialHeap (BinomialHeap, fromList) where
 
 import Heap
 
@@ -16,7 +16,7 @@ instance Show a => Show (Tree a) where
 -- root :: Tree a -> a
 -- root (Node _ x _) = x
 
-newtype BinomialHeap a = BH { trees :: [Tree a] }
+newtype BinomialHeap a = BH [Tree a] deriving Show
 
 link :: Ord a => Tree a -> Tree a -> Tree a
 link t1@(Node r x1 c1) t2@(Node _ x2 c2) =
@@ -71,10 +71,10 @@ instance Heap BinomialHeap where
             _             -> Nothing
 
 -- |
--- >>> trees $ fromList [1,2]
--- [Node 1 1 [Node 0 2 []]]
+-- >>> fromList [1,2]
+-- BH [Node 1 1 [Node 0 2 []]]
 --
--- >>> trees $ fromList [1,2,3,4,5,6,7,8]
--- [Node 3 1 [Node 2 5 [Node 1 7 [Node 0 8 []],Node 0 6 []],Node 1 3 [Node 0 4 []],Node 0 2 []]]
+-- >>> fromList [1,2,3,4,5,6,7,8]
+-- BH [Node 3 1 [Node 2 5 [Node 1 7 [Node 0 8 []],Node 0 6 []],Node 1 3 [Node 0 4 []],Node 0 2 []]]
 fromList :: Ord a => [a] -> BinomialHeap a
 fromList = foldl' (flip insert) empty

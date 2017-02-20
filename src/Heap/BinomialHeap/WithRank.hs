@@ -3,7 +3,7 @@
 -- Remove the rank annotations from each node and instead pair each tree
 -- at the top-level with its rank.
 
-module Heap.BinomialHeap.WithRank (BinomialHeap (..), fromList) where
+module Heap.BinomialHeap.WithRank (BinomialHeap, fromList) where
 
 import Heap
 
@@ -14,7 +14,7 @@ data Tree a = Node { root :: a, children :: [Tree a] }
 instance Show a => Show (Tree a) where
     show (Node x ts) = "Node " ++ show x ++ " " ++ show ts
 
-newtype BinomialHeap a = BH { trees :: [(Int, Tree a)]}
+newtype BinomialHeap a = BH [(Int, Tree a)] deriving Show
 
 link :: Ord a => Tree a -> Tree a -> Tree a
 link n1@(Node x1 c1) n2@(Node x2 c2) =
@@ -65,10 +65,10 @@ instance Heap BinomialHeap where
             _             -> Nothing
 
 -- |
--- >>> trees $ fromList [1,2]
--- [(1,Node 1 [Node 2 []])]
+-- >>> fromList [1,2]
+-- BH [(1,Node 1 [Node 2 []])]
 --
--- >>> trees $ fromList [1,2,3,4,5,6,7,8]
--- [(3,Node 1 [Node 5 [Node 7 [Node 8 []],Node 6 []],Node 3 [Node 4 []],Node 2 []])]
+-- >>> fromList [1,2,3,4,5,6,7,8]
+-- BH [(3,Node 1 [Node 5 [Node 7 [Node 8 []],Node 6 []],Node 3 [Node 4 []],Node 2 []])]
 fromList :: Ord a => [a] -> BinomialHeap a
 fromList = foldl' (flip insert) empty

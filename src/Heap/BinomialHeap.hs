@@ -4,15 +4,19 @@ import Heap
 
 import Data.Foldable (foldl')
 
-data Tree a = Node Int a [Tree a] deriving Show
+-- data Tree a = Node Int a [Tree a] deriving Show
+data Tree a = Node { rank :: Int, root :: a, children :: [Tree a] }
+
+instance Show a => Show (Tree a) where
+    show (Node r x ts) = "Node " ++ show r ++ " " ++ show x ++ " " ++ show ts
+
+-- rank :: Tree a -> Int
+-- rank (Node r _ _) = r
+
+-- root :: Tree a -> a
+-- root (Node _ x _) = x
 
 newtype BinomialHeap a = BH { trees :: [Tree a] }
-
-rank :: Tree a -> Int
-rank (Node r _ _) = r
-
-root :: Tree a -> a
-root (Node _ x _) = x
 
 link :: Ord a => Tree a -> Tree a -> Tree a
 link t1@(Node r x1 c1) t2@(Node _ x2 c2) =
@@ -33,9 +37,10 @@ mrg ts1@(t1:ts1') ts2@(t2:ts2')
 
 removeMinTree :: Ord a => [Tree a] -> Maybe (Tree a, [Tree a])
 removeMinTree []     = Nothing
-removeMinTree [t]    = Just (t, [])
-removeMinTree (t:ts) = Just $ if root t < root t' then (t, ts) else (t', t:ts')
-  where Just (t', ts') = removeMinTree ts
+removeMinTree [t]    = return (t, [])
+removeMinTree (t:ts) = do
+    (t', ts') <- removeMinTree ts
+    return $ if root t < root t' then (t, ts) else (t', t:ts')
 
 instance Heap BinomialHeap where
     -- empty :: Ord a => BinomialHeap a
@@ -55,17 +60,15 @@ instance Heap BinomialHeap where
     --                       Just (t, _) -> Just (root t)
     --                       _           -> Nothing
     {- Exercise 3.5 -}
-    findMin (BH [])     = Nothing
-    findMin (BH [t])    = Just (root t)
-    findMin (BH (t:ts)) = Just $ let r = root t
-                                     Just r' = findMin (BH ts)
-                                 in min r r'
+    findMin (BH []) = Nothing
+    findMin (BH ts) = Just (minimum (fmap root ts))
 
     -- deleteMin :: Ord a => BinomialHeap a -> Maybe (BinomialHeap a)
     deleteMin (BH ts) =
         case removeMinTree ts of
-            Just (Node _ _ ts1, ts2) -> Just (BH (mrg (reverse ts1) ts2))
-            _                        -> Nothing
+            -- Just (Node _ _ ts1, ts2) -> Just (BH (mrg (reverse ts1) ts2))
+            Just (t, ts') -> Just (BH (mrg (reverse (children t)) ts'))
+            _             -> Nothing
 
 -- |
 -- >>> trees $ fromList [1,2]

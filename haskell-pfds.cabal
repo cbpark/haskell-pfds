@@ -19,6 +19,7 @@ library
                        Heap
                        Heap.LeftistHeap
                        Heap.BinomialHeap
+                       Heap.BinomialHeap.WithRank
                        Set
                        Set.UnbalancedSet
                        FiniteMap

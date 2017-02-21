@@ -3,11 +3,11 @@
 
 module Set.UnbalancedSet where
 
-import Set
 import FiniteMap
+import Set
 
 import Data.Maybe (fromMaybe)
-import Prelude hiding (lookup)
+import Prelude    hiding (lookup)
 
 data UnbalancedSet a = E | T !(UnbalancedSet a) a !(UnbalancedSet a)
                      deriving Show

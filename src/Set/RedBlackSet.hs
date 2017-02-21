@@ -81,7 +81,6 @@ instance Ord a => Set RedBlackSet a where
                                        else balanceRR color a y (ins b)
             | otherwise = s
 
-
     -- member :: a -> RedBlackSet a -> Bool
     member _ E = False
     member x (T _ a y b) | x < y     = member x a

@@ -24,6 +24,7 @@ library
                        Heap.BinomialHeap
                        Heap.BinomialHeap.WithRank
                        Heap.ExplicitMin
+                       Heap.SplayHeap
                        Set
                        Set.UnbalancedSet
                        Set.RedBlackSet

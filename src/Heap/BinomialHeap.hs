@@ -1,8 +1,6 @@
-module Heap.BinomialHeap (BinomialHeap, fromList) where
+module Heap.BinomialHeap (BinomialHeap) where
 
 import Heap
-
-import Data.Foldable (foldl')
 
 -- data Tree a = Node Int a [Tree a] deriving Show
 data Tree a = Node { rank :: Int, root :: a, children :: [Tree a] }
@@ -69,12 +67,3 @@ instance Heap BinomialHeap where
             -- Just (Node _ _ ts1, ts2) -> Just (BH (mrg (reverse ts1) ts2))
             Just (t, ts') -> Just (BH (mrg (reverse (children t)) ts'))
             _             -> Nothing
-
--- |
--- >>> fromList [1,2]
--- BH [Node 1 1 [Node 0 2 []]]
---
--- >>> fromList [1,2,3,4,5,6,7,8]
--- BH [Node 3 1 [Node 2 5 [Node 1 7 [Node 0 8 []],Node 0 6 []],Node 1 3 [Node 0 4 []],Node 0 2 []]]
-fromList :: Ord a => [a] -> BinomialHeap a
-fromList = foldl' (flip insert) empty

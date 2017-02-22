@@ -1,8 +1,6 @@
-module Heap.SplayHeap (SplayHeap, fromList) where
+module Heap.SplayHeap (SplayHeap) where
 
 import Heap
-
-import Data.Foldable (foldl')
 
 data SplayHeap a = E | T !(SplayHeap a) a !(SplayHeap a) deriving Show
 
@@ -77,6 +75,3 @@ instance Heap SplayHeap where
     deleteMin (T (T E _ b) y c) = Just (T b y c)
     deleteMin (T (T a x b) y c) = do l <- deleteMin a
                                      return (T l x (T b y c))
-
-fromList :: Ord a => [a] -> SplayHeap a
-fromList = foldl' (flip insert) empty

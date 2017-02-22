@@ -1,11 +1,9 @@
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-module Set.RedBlackSet (RedBlackSet, fromList) where
+module Set.RedBlackSet (RedBlackSet) where
 
 import Set
-
-import Data.Foldable (foldl')
 
 data Color = R | B deriving Show
 
@@ -86,6 +84,3 @@ instance Ord a => Set RedBlackSet a where
     member x (T _ a y b) | x < y     = member x a
                          | x > y     = member x b
                          | otherwise = True
-
-fromList :: Ord a => [a] -> RedBlackSet a
-fromList = foldl' (flip insert) empty

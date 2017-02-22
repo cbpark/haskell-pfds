@@ -3,11 +3,9 @@
 -- Remove the rank annotations from each node and instead pair each tree
 -- at the top-level with its rank.
 
-module Heap.BinomialHeap.WithRank (BinomialHeap, fromList) where
+module Heap.BinomialHeap.WithRank (BinomialHeap) where
 
 import Heap
-
-import Data.Foldable (foldl')
 
 data Tree a = Node { root :: a, children :: [Tree a] }
 
@@ -63,12 +61,3 @@ instance Heap BinomialHeap where
             Just (t, ts2) -> let ts1 = zip [0..] (reverse (children t))
                              in Just (BH (mrg ts1 ts2))
             _             -> Nothing
-
--- |
--- >>> fromList [1,2]
--- BH [(1,Node 1 [Node 2 []])]
---
--- >>> fromList [1,2,3,4,5,6,7,8]
--- BH [(3,Node 1 [Node 5 [Node 7 [Node 8 []],Node 6 []],Node 3 [Node 4 []],Node 2 []])]
-fromList :: Ord a => [a] -> BinomialHeap a
-fromList = foldl' (flip insert) empty

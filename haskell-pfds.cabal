@@ -19,11 +19,13 @@ library
                        Queue
                        Queue.BatchedQueue
                        Queue.BankersQueue
+                       Queue.PhysicistsQueue
                        Deque
                        Heap
                        Heap.LeftistHeap
                        Heap.BinomialHeap
                        Heap.BinomialHeap.WithRank
+                       Heap.BinomialHeap.SizedHeap
                        Heap.ExplicitMin
                        Heap.SplayHeap
                        Heap.PairingHeap

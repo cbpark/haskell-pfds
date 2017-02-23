@@ -1,5 +1,3 @@
-{-# LANGUAGE StrictData #-}
-
 -- | Exercise 3.6
 --
 -- Remove the rank annotations from each node and instead pair each tree

@@ -21,9 +21,9 @@ instance Queue BatchedQueue where
     snoc (BQ f r) x = check f (x:r)
 
     -- head    :: BatchedQueue a -> Maybe a
-    head (BQ [] _)    = Nothing
+    head (BQ []    _) = Nothing
     head (BQ (x:_) _) = Just x
 
     -- tail    :: BatchedQueue a -> Maybe (q a)
-    tail (BQ [] _)    = Nothing
+    tail (BQ []    _) = Nothing
     tail (BQ (_:f) r) = Just (check f r)

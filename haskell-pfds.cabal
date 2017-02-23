@@ -18,6 +18,7 @@ library
   exposed-modules:     Stack
                        Queue
                        Queue.BatchedQueue
+                       Queue.BankersQueue
                        Deque
                        Heap
                        Heap.LeftistHeap

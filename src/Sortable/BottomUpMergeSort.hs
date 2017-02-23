@@ -4,7 +4,7 @@ import Sortable
 
 import Data.Foldable (foldl')
 
-data MergeSort a = MS Int [[a]] deriving Show
+data MergeSort a = MS !Int [[a]] deriving Show
 
 mrg :: Ord a => [a] -> [a] -> [a]
 mrg []         ys = ys

@@ -29,6 +29,7 @@ library
                        Heap.ExplicitMin
                        Heap.SplayHeap
                        Heap.PairingHeap
+                       Heap.LazyPairingHeap
                        Sortable
                        Sortable.BottomUpMergeSort
                        Set

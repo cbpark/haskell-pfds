@@ -3,7 +3,7 @@ module Queue.PhysicistsQueue where
 import           Queue
 import qualified Stack as S
 
-data PhysicistsQueue a = PQ [a] Int [a] Int [a] deriving Show
+data PhysicistsQueue a = PQ ![a] !Int [a] !Int ![a] deriving Show
 
 check :: [a] -> Int -> [a] -> Int -> [a] -> PhysicistsQueue a
 check w lenf f lenr r = if lenr <= lenf

@@ -1,3 +1,5 @@
+{-# LANGUAGE StrictData #-}
+
 module Heap.PairingHeap (PairingHeap) where
 
 import Heap

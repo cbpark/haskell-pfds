@@ -1,8 +1,10 @@
+{-# LANGUAGE StrictData #-}
+
 module Heap.LeftistHeap (LeftistHeap, fromList) where
 
 import Heap
 
-data LeftistHeap a = E | T Int a !(LeftistHeap a) !(LeftistHeap a) deriving Show
+data LeftistHeap a = E | T Int a (LeftistHeap a) (LeftistHeap a) deriving Show
 
 rank :: LeftistHeap a -> Int
 rank E           = 0

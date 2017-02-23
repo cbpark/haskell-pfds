@@ -1,8 +1,10 @@
+{-# LANGUAGE StrictData #-}
+
 module Heap.SplayHeap (SplayHeap) where
 
 import Heap
 
-data SplayHeap a = E | T !(SplayHeap a) a !(SplayHeap a) deriving Show
+data SplayHeap a = E | T (SplayHeap a) a (SplayHeap a) deriving Show
 
 -- bigger :: Ord a => a -> SplayHeap a -> SplayHeap a
 -- bigger _     E         = E

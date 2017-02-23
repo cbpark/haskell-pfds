@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE StrictData            #-}
 
 module Set.RedBlackSet (RedBlackSet) where
 
@@ -7,7 +8,7 @@ import Set
 
 data Color = R | B deriving Show
 
-data RedBlackSet a = E | T Color !(RedBlackSet a) a !(RedBlackSet a)
+data RedBlackSet a = E | T Color (RedBlackSet a) a (RedBlackSet a)
                    deriving Show
 
 -- balance :: Color -> RedBlackSet a -> a -> RedBlackSet a -> RedBlackSet a

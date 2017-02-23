@@ -1,3 +1,5 @@
+{-# LANGUAGE StrictData #-}
+
 module Heap.BinomialHeap (BinomialHeap) where
 
 import Heap

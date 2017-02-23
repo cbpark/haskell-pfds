@@ -1,3 +1,5 @@
+{-# LANGUAGE StrictData #-}
+
 -- | Exercise 3.7
 --
 -- Improve the running time of findMin to O(1) by storing the minimum

@@ -1,3 +1,5 @@
+{-# LANGUAGE StrictData #-}
+
 module Queue.BatchedQueue (BatchedQueue) where
 
 import Queue

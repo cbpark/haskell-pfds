@@ -29,6 +29,8 @@ library
                        Heap.ExplicitMin
                        Heap.SplayHeap
                        Heap.PairingHeap
+                       Sortable
+                       Sortable.BottomUpMergeSort
                        Set
                        Set.UnbalancedSet
                        Set.RedBlackSet

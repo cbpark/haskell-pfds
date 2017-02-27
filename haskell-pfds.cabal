@@ -22,6 +22,7 @@ library
                        Queue.PhysicistsQueue
                        Queue.HoodMelvilleQueue
                        Deque
+                       Deque.BankersDeque
                        Heap
                        Heap.LeftistHeap
                        Heap.BinomialHeap

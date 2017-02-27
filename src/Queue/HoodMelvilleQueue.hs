@@ -1,4 +1,4 @@
-module Queue.HoodMelvilleQueue where
+module Queue.HoodMelvilleQueue (HoodMelvilleQueue) where
 
 import Queue
 

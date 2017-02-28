@@ -14,3 +14,6 @@ class RandomAccessList r where
     lookup  :: Int -> r a -> Maybe a
     -- update  :: Int -> a -> r a -> r a
     update  :: Int -> a -> r a -> Maybe (r a)
+
+    fromList :: [a] -> r a
+    fromList = foldr cons empty

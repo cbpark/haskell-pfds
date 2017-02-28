@@ -23,6 +23,7 @@ library
                        Deque
                        Deque.BankersDeque
                        RandomAccessList
+                       RandomAccessList.BinaryRandomAcessList
                        Heap
                        Heap.LeftistHeap
                        Heap.BinomialHeap

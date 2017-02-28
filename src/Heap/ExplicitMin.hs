@@ -40,5 +40,4 @@ instance Heap h => Heap (ExplicitMin h) where
     deleteMin E        = Nothing
     deleteMin (NE _ h) = case deleteMin h of
                              Nothing -> Just E
-                             Just h' -> do m' <- findMin h'
-                                           return (NE m' h')
+                             Just h' -> findMin h' >>= (\m' -> return (NE m' h'))

@@ -28,5 +28,4 @@ instance Heap SizedHeap where
 
     -- deleteMin :: Ord a => SizedHeap a -> Maybe (SizedHeap a)
     deleteMin (SH (0, _)) = Nothing
-    deleteMin (SH (s, h)) = do h' <- deleteMin h
-                               return (SH (s - 1, h'))
+    deleteMin (SH (s, h)) = deleteMin h >>= (\h' -> return (SH (s - 1, h')))

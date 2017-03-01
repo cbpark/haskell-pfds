@@ -34,6 +34,7 @@ library
                        Heap.SplayHeap
                        Heap.PairingHeap
                        Heap.LazyPairingHeap
+                       Heap.SkewBinomialHeap
                        Sortable
                        Sortable.BottomUpMergeSort
                        Set

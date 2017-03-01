@@ -25,6 +25,7 @@ library
                        RandomAccessList
                        RandomAccessList.BinaryRandomAcessList
                        RandomAccessList.SkewBinaryRandomAccessList
+                       RandomAccessList.AltBinaryRandomAccessList
                        Heap
                        Heap.LeftistHeap
                        Heap.BinomialHeap

@@ -23,6 +23,7 @@ library
                        Queue.BootstrappedQueue
                        Deque
                        Deque.BankersDeque
+                       CatenableList
                        RandomAccessList
                        RandomAccessList.BinaryRandomAcessList
                        RandomAccessList.SkewBinaryRandomAccessList

@@ -45,6 +45,7 @@ library
                        Set.UnbalancedSet
                        Set.RedBlackSet
                        FiniteMap
+                       FiniteMap.Trie
   other-modules:       Stack
   build-depends:       base >= 4.9
   ghc-options:         -Wall -O2 -funbox-strict-fields

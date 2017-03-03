@@ -25,6 +25,7 @@ library
                        Deque.BankersDeque
                        CatenableList
                        CatenableList.CatList
+                       CatenableDeque
                        RandomAccessList
                        RandomAccessList.BinaryRandomAcessList
                        RandomAccessList.SkewBinaryRandomAccessList

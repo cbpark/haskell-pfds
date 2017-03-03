@@ -46,6 +46,7 @@ library
                        Set.RedBlackSet
                        FiniteMap
                        FiniteMap.Trie
+                       FiniteMap.TrieOfTrees
   other-modules:       Stack
   build-depends:       base >= 4.9
   ghc-options:         -Wall -O2 -funbox-strict-fields

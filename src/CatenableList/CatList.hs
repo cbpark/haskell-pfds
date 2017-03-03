@@ -1,4 +1,4 @@
-module CatenableList.CatList where
+module CatenableList.CatList (CatList) where
 
 import           CatenableList
 import           Queue         (Queue)

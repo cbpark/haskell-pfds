@@ -3,11 +3,11 @@ version:             0.1.0.0
 synopsis:            Haskell codes for Purely Functional Data Structures
 description:         Please see README.md
 homepage:            https://github.com/cbpark/haskell-pfds#readme
-license:             BSD3
-license-file:        LICENSE
+-- license:
+-- license-file:        LICENSE
 author:              Chan Beom Park
 maintainer:          cbpark@gmail.com
-copyright:           Copyright (c) 2017 Chan Beom Park
+-- copyright:
 -- category:
 build-type:          Simple
 extra-source-files:  README.md
